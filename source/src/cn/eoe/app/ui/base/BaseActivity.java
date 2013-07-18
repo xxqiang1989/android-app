@@ -1,30 +1,28 @@
 package cn.eoe.app.ui.base;
 
-import java.lang.reflect.Field;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
+
 import cn.eoe.app.R;
 import cn.eoe.app.utils.LogUtil;
 
-import com.umeng.analytics.MobclickAgent;
+import java.lang.reflect.Field;
 
 public class BaseActivity extends Activity {
 
 	private static final String TAG = "BaseActivity";
 
 	protected AlertDialog mAlertDialog;
-	protected AsyncTask mRunningTask;
+//	protected AsyncTask mRunningTask;
 
 	/******************************** 【Activity LifeCycle For Debug】 *******************************************/
 	@Override
@@ -33,7 +31,6 @@ public class BaseActivity extends Activity {
 				+ " onCreate() invoked!!");
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		MobclickAgent.onError(this);
 
 	}
 
@@ -55,18 +52,12 @@ public class BaseActivity extends Activity {
 		LogUtil.d(TAG, this.getClass().getSimpleName()
 				+ " onResume() invoked!!");
 		super.onResume();
-		MobclickAgent.onResume(this);
 	}
 
 	@Override
 	protected void onPause() {
 		LogUtil.d(TAG, this.getClass().getSimpleName() + " onPause() invoked!!");
 		super.onPause();
-		try {
-			MobclickAgent.onPause(this);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 
 	@Override
@@ -81,10 +72,10 @@ public class BaseActivity extends Activity {
 				+ " onDestroy() invoked!!");
 		super.onDestroy();
 
-		if (mRunningTask != null && mRunningTask.isCancelled() == false) {
-			mRunningTask.cancel(false);
-			mRunningTask = null;
-		}
+//		if (mRunningTask != null && mRunningTask.isCancelled() == false) {
+//			mRunningTask.cancel(false);
+//			mRunningTask = null;
+//		}
 		if (mAlertDialog != null) {
 			mAlertDialog.dismiss();
 			mAlertDialog = null;

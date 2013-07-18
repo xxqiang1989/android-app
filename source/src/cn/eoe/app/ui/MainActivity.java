@@ -1,15 +1,5 @@
 package cn.eoe.app.ui;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Timer;
-import java.util.TimerTask;
-
-import org.apache.http.message.BasicNameValuePair;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -38,6 +28,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import cn.eoe.app.R;
 import cn.eoe.app.adapter.BasePageAdapter;
 import cn.eoe.app.biz.BaseDao;
@@ -60,7 +51,15 @@ import cn.eoe.app.utils.IntentUtil;
 import cn.eoe.app.utils.PopupWindowUtil;
 import cn.eoe.app.widget.CustomButton;
 
-import com.umeng.fb.UMFeedbackService;
+import org.apache.http.message.BasicNameValuePair;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainActivity extends BaseSlidingFragmentActivity implements
 		OnClickListener, AnimationListener {
@@ -359,7 +358,7 @@ public class MainActivity extends BaseSlidingFragmentActivity implements
 			}
 			break;
 		case R.id.cbFeedback:
-			UMFeedbackService.openUmengFeedbackSDK(this);
+//			UMFeedbackService.openUmengFeedbackSDK(this);
 			break;
 		case R.id.cbAbove:
 			IntentUtil.start_activity(this, AboutActivity.class);

@@ -6,10 +6,9 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
+
 import cn.eoe.app.R;
 import cn.eoe.app.ui.base.BaseActivity;
-
-import com.umeng.update.UmengUpdateAgent;
 
 public class SplashActivity extends BaseActivity {
 
@@ -39,10 +38,6 @@ public class SplashActivity extends BaseActivity {
 				}, 500);
 			}
 		});
-		UmengUpdateAgent.setUpdateOnlyWifi(false);
-		UmengUpdateAgent.update(this);
-		
-		
 	}
 
 	protected void onResume() {
